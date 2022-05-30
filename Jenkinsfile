@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Cloning repo') {
             steps {
-                git 'https://github.com/spring-petclinic/spring-framework-petclinic.git'           
+                git ' https://github.com/daticahealth/java-tomcat-maven-example.git'           
             }
         }
         stage('maven build') {
@@ -17,5 +17,10 @@ pipeline {
                   """
               }
          }
+        stage('deploy') {
+            steps { 
+                sh """ cp target/java-tomcat-maven-example.war /opt/tomcat/webapps/
+                       sudo systemctl restart tomcat"""
+            }
     }
 }
