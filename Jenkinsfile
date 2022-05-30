@@ -9,14 +9,12 @@ pipeline {
         }
         stage('maven build') {
               steps {
-                  script {
-                      sh"""
-                      cd $workspace
-                      ./mvnw clean install
-                      cd target
-                      ls -lrt
-                      """
-                  }
+                  sh"""
+                  cd $workspace
+                  mvn clean install
+                  cd target
+                  ls -lrt
+                  """
               }
          }
     }
