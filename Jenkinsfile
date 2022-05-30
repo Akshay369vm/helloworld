@@ -7,7 +7,7 @@ pipeline {
                 git 'https://github.com/Akshay369vm/helloworld.git'
             }
         }
-        stage("maven build') {
+        stage('maven build') {
               step {
                   script {
                       sh"""
