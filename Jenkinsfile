@@ -12,7 +12,7 @@ pipeline {
                   script {
                       sh"""
                       cd $workspace
-                      maven clean install
+                      ./mvnw clean install
                       cd target
                       ls -lrt
                       """
