@@ -11,7 +11,7 @@ pipeline {
               steps {
                   sh"""
                   cd $workspace
-                  mvn clean install
+                  mvn clean package
                   cd target
                   ls -lrt
                   """
