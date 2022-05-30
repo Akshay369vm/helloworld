@@ -11,7 +11,7 @@ pipeline {
               steps {
                   script {
                       sh"""
-                      cd $workspace/maven-project
+                      cd $workspace
                       mvn clean install
                       cd target
                       ls -lrt
