@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('maven build') {
-              step {
+              steps {
                   script {
                       sh"""
                       cd $workspace/maven-project
