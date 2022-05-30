@@ -19,7 +19,7 @@ pipeline {
          }
         stage('deploy') {
             steps { 
-                sh """ cp target/java-tomcat-maven-example.war /opt/tomcat/webapps/
+                sh """ sudo cp target/java-tomcat-maven-example.war /opt/tomcat/webapps/
                        sudo systemctl restart tomcat"""
             }
         }
