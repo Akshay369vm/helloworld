@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Cloning repo') {
             steps {
-                git 'https://github.com/Akshay369vm/simple-java-maven-app.git'            
+                git 'https://github.com/spring-petclinic/spring-framework-petclinic.git'           
             }
         }
         stage('maven build') {
