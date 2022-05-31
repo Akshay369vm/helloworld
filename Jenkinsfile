@@ -22,6 +22,17 @@ pipeline {
                 }
             }
         }
+        stage("Quality gate") {
+            steps {
+                script {
+                    def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            sh "exit 1"
+                        }
+                }
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage('maven build') {
               steps {
                   sh"""
