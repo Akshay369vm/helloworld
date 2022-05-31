@@ -7,6 +7,21 @@ pipeline {
                 git ' https://github.com/daticahealth/java-tomcat-maven-example.git'           
             }
         }
+        stage('SonarQube Analysis') {
+            environment {
+                SCANNER_HOME = tool 'SonarQube'
+                //ORGANIZATION = "AkshayVM"
+                PROJECT_NAME = "petclinic-tomcat"
+            }
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=$PROJECT_NAME \
+                        -Dsonar.java.binaries=\"target/classes/\"'''
+                    }
+                }
+            }
+        }
         stage('maven build') {
               steps {
                   sh"""
